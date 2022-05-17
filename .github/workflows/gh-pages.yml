@@ -1,35 +1,27 @@
-name: Deploy to GitHub-Pages
-
+name: Build and Deploy
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check Out
-        uses: actions/checkout@v2.4.0
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          persist-credentials: false
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-
-      - name: Installing Dependencies
-        run: npm ci
-
-      - name: Building
-        run: npm run build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY_NAME: AntonOshurek/Geberit__login-form.github.io
-          folder: build
           branch: gh-pages
+          folder: build
+          clean: true
+          clean-exclude: |
+            special-file.txt
+            some/*.txt
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
