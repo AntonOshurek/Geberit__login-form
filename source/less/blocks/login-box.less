@@ -13,8 +13,11 @@
 }
 
 .login-box__title {
-  color: #fff;
   text-align: center;
+  color: @standart-white;
+  font-weight: 500;
+  font-size: @form-title-text-size;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-box__form {
@@ -32,12 +35,15 @@
 .login-box__input {
   width: 300px;
   padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid @standart-white;
   outline: none;
   background: transparent;
+
+  color: @standart-white;
+  font-size: @standart-text-size;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-box__label {
@@ -45,44 +51,49 @@
   top:0;
   left: 0;
   padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
+  color: @standart-white;
   pointer-events: none;
   transition: .5s;
+
+  font-size: @standart-text-size;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-box__input:focus ~ .login-box__label,
 .login-box__input:valid ~ .login-box__label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
-  font-size: 12px;
+  color: @submit-color;
+  font-size: @input-hover-text-size;
 }
 
 .login-box__submit {
   position: relative;
   padding: 10px 20px;
-  color: #03e9f4;
-  font-size: 16px;
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px;
-
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  color: @submit-color;
+  font-size: @standart-text-size;
+  letter-spacing: 4px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-box__submit:hover {
-  background: #03e9f4;
-  color: #fff;
+  background: @submit-color;
+  color: @standart-white;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px @submit-color,
+              0 0 25px @submit-color,
+              0 0 50px @submit-color,
+              0 0 100px @submit-color;
 }
 
 .login-box__submit span {
@@ -97,7 +108,7 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
+  background: linear-gradient(90deg, transparent, @submit-color);
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -115,7 +126,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
+  background: linear-gradient(180deg, transparent, @submit-color);
   animation: btn-anim2 1s linear infinite;
   animation-delay: .25s
 }
@@ -134,7 +145,7 @@
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
+  background: linear-gradient(270deg, transparent, @submit-color);
   animation: btn-anim3 1s linear infinite;
   animation-delay: .5s
 }
@@ -153,7 +164,7 @@
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
+  background: linear-gradient(360deg, transparent, @submit-color);
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s
 }
