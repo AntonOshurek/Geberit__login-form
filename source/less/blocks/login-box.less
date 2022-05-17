@@ -10,6 +10,10 @@
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-row-gap: 20px;
+
+  @media (max-width: @mobile-width) {
+    padding: 40px 20px;
+  }
 }
 
 .login-box__title {
@@ -102,7 +106,6 @@
 }
 
 //submit button animation
-
 .login-box__submit span:nth-child(1) {
   top: 0;
   left: -100%;

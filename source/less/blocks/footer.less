@@ -1,5 +1,6 @@
 .footer {
-  padding: 40px 0;
+  width: 100%;
+  padding: 40px @basic-side-padding;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -15,10 +16,17 @@
 }
 
 .footer__contact {
+  padding: 10px 0;
   font-weight: normal;
   font-size: @standart-text-size;
   font-family: 'Poppins', sans-serif;
   color: @standart-black;
+
+  @media (max-width: @mobile-width) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .footer__tel {
