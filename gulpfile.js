@@ -5,13 +5,13 @@ const gulp = require('gulp'),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
       sync = require('browser-sync').create(),
-      htmlmin = require('gulp-htmlmin'),
-      csso = require('postcss-csso'),
+      // htmlmin = require('gulp-htmlmin'),
+      // csso = require('postcss-csso'),
       rename = require('gulp-rename'),
       squoosh = require('gulp-libsquoosh'),
       webp = require("gulp-webp"),
-      del = require('del'),
-      webpack = require("webpack-stream");
+      del = require('del')
+      // webpack = require("webpack-stream");
 
 // Styles
 const styles = () => {
@@ -39,38 +39,38 @@ const html = () => {
 exports.html = html;
 
 //js webpack
-const script = () => {
-  return gulp.src('source/scripts/index.js')
-  .pipe(webpack({
-    mode: 'development',
-    output: {
-      filename: 'bundle.js'
-    },
-    watch: false,
-    devtool: "source-map",
-    module: {
-      rules: [
-        {
-          test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['@babel/preset-env', {
-              debug: true,
-              corejs: 3,
-              useBuiltIns: "usage"
-            }]]
-          }
-          }
-        }
-      ]
-    }
-  }))
-  .pipe(gulp.dest('build/js'))
-  .pipe(sync.stream());
-}
-exports.script = script;
+// const script = () => {
+//   return gulp.src('source/scripts/index.js')
+//   .pipe(webpack({
+//     mode: 'development',
+//     output: {
+//       filename: 'bundle.js'
+//     },
+//     watch: false,
+//     devtool: "source-map",
+//     module: {
+//       rules: [
+//         {
+//           test: /\.m?js$/,
+//           exclude: /(node_modules|bower_components)/,
+//           use: {
+//           loader: 'babel-loader',
+//           options: {
+//             presets: [['@babel/preset-env', {
+//               debug: true,
+//               corejs: 3,
+//               useBuiltIns: "usage"
+//             }]]
+//           }
+//           }
+//         }
+//       ]
+//     }
+//   }))
+//   .pipe(gulp.dest('build/js'))
+//   .pipe(sync.stream());
+// }
+// exports.script = script;
 
 //squoosh
 const optimizeImages = () => {
@@ -139,7 +139,7 @@ const reload = (done) => {
 
 const watcher = () => {
   gulp.watch("source/less/**/*.less", gulp.series(styles));
-  gulp.watch("source/scripts/**/*.js", gulp.series(script));
+  // gulp.watch("source/scripts/**/*.js", gulp.series(script));
   gulp.watch("source/*.html", gulp.series(html, reload));
 }
 
@@ -152,7 +152,7 @@ const build = gulp.series(
     styles,
     html,
     createWebp,
-    script,
+    // script,
   ),
 );
 exports.build = build;
@@ -166,7 +166,7 @@ exports.default = gulp.series(
     styles,
     html,
     createWebp,
-    script,
+    // script,
   ),
   gulp.series(
     server,
