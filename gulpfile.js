@@ -20,8 +20,8 @@ const styles = () => {
     .pipe(sourcemap.init())
     .pipe(less())
     .pipe(postcss([
-      autoprefixer(),
-      csso()
+      autoprefixer()
+      // csso()
     ]))
     .pipe(rename('style.min.css'))
     .pipe(sourcemap.write("."))
@@ -33,7 +33,7 @@ exports.styles = styles;
 //HTML
 const html = () => {
   return gulp.src('source/*.html')
-  .pipe(htmlmin({ collapseWhitespace: true }))
+  // .pipe(htmlmin({ collapseWhitespace: true }))
   .pipe(gulp.dest('build'));
 };
 exports.html = html;
