@@ -64,6 +64,43 @@
   font-size: 17px;
   font-family: 'Poppins', sans-serif;
 }
+.main__reset-button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.main__reset-button::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.main__reset-button:hover {
+  color: #000000;
+}
+.main__reset-button:hover::after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.main__reset-button:active {
+  top: 2px;
+}
 .footer {
   width: 100%;
   padding: 40px 20px;
@@ -82,7 +119,7 @@
 .footer__contact {
   padding: 10px 0;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Poppins', sans-serif;
   color: #000000;
 }
@@ -95,13 +132,13 @@
 }
 .footer__tel {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Poppins', sans-serif;
   color: #000000;
 }
 .footer__link {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Poppins', sans-serif;
   color: #000000;
 }
@@ -157,7 +194,7 @@
   outline: none;
   background: transparent;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 }
@@ -169,16 +206,26 @@
   color: #ffffff;
   pointer-events: none;
   transition: 0.5s;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border-bottom: 1px solid #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .login-box__input:focus ~ .login-box__label,
-.login-box__input:valid ~ .login-box__label {
+.login-box__input:valid ~ .login-box__label,
+.login-box__input:-webkit-autofill ~ .login-box__label {
   top: -20px;
   left: 0;
   color: #03e9f4;
-  font-size: 12px;
+  font-size: 15px;
 }
 .login-box__submit {
   position: relative;
@@ -191,7 +238,7 @@
   background-color: transparent;
   cursor: pointer;
   color: #03e9f4;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 4px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
