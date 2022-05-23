@@ -64,8 +64,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border-bottom: 1px solid #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .login-box__input:focus ~ .login-box__label,
-.login-box__input:valid ~ .login-box__label {
+.login-box__input:valid ~ .login-box__label,
+.login-box__input:-webkit-autofill ~ .login-box__label {
   top: -20px;
   left: 0;
   color: @submit-color;
